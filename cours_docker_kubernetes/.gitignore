@@ -1,0 +1,60 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Fichiers temporaires
+*.tmp
+*.bak
+*.log
+*.cache
+
+# Node modules (si exemples Node.js)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python (si exemples Python)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Docker
+.dockerignore
+
+# Kubernetes
+*.kubeconfig
+
+# Fichiers de build
+dist/
+build/
+*.egg-info/
+
+# Fichiers sensibles
+.env
+.env.local
+secrets/
+*.key
+*.pem
+*.crt
+
+# Fichiers de présentation générés
+presentations/*.pdf
+presentations/*.pptx
+
+# Fichiers de backup
+*.backup

@@ -1,4 +1,4 @@
-/* @theme custom */
+/* @theme docker-kubernetes */
 
 @import 'default';
 
@@ -24,11 +24,11 @@ section::before {
   z-index: -1;
 }
 
-/* Titres avec couleurs lisibles */
+/* Titres avec couleurs Docker/Kubernetes */
 h1 {
   font-size: 1.6em;
   color: #ffffff;
-  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #0db7ed 0%, #326ce5 100%);
   margin: -35px -35px 0.7em -35px;
   padding: 20px 35px;
   border-radius: 8px 8px 0 0;
@@ -39,11 +39,11 @@ h1 {
 
 h2 {
   font-size: 1.2em;
-  color: #1e40af;
+  color: #0db7ed;
   margin-bottom: 0.4em;
   margin-top: 0.7em;
   padding-bottom: 0.3em;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #326ce5;
   font-weight: 600;
 }
 
@@ -72,13 +72,11 @@ ul {
 }
 
 ul li::before {
-  content: "▸";
-  color: #2563eb;
-  font-weight: bold;
+  content: "🐳";
   display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-  font-size: 1.2em;
+  width: 1.5em;
+  margin-left: -1.5em;
+  font-size: 1em;
 }
 
 ol {
@@ -99,7 +97,7 @@ li {
 
 /* Emphase avec couleurs contrastées */
 strong {
-  color: #1e40af;
+  color: #0db7ed;
   font-weight: bold;
 }
 
@@ -120,7 +118,7 @@ code {
   border: 1px solid #fbbf24;
 }
 
-/* Blocs de code avec style lisible */
+/* Blocs de code avec style Docker */
 pre {
   background-color: #1e293b;
   color: #e2e8f0;
@@ -154,7 +152,7 @@ table {
 }
 
 th {
-  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #0db7ed 0%, #326ce5 100%);
   color: white;
   padding: 8px;
   text-align: left;
@@ -179,7 +177,7 @@ tr:hover td {
 /* Citations avec style lisible */
 blockquote {
   background-color: #dbeafe;
-  border-left: 4px solid #2563eb;
+  border-left: 4px solid #0db7ed;
   padding: 12px 16px;
   margin: 0.7em 0;
   font-style: italic;
@@ -190,7 +188,7 @@ blockquote {
 
 /* Liens avec bon contraste */
 a {
-  color: #2563eb;
+  color: #0db7ed;
   text-decoration: none;
   font-weight: 600;
   border-bottom: 2px solid transparent;
@@ -198,7 +196,7 @@ a {
 }
 
 a:hover {
-  border-bottom: 2px solid #2563eb;
+  border-bottom: 2px solid #0db7ed;
 }
 
 /* Images */
@@ -218,7 +216,7 @@ img {
 section::after {
   font-size: 0.7em;
   color: #ffffff;
-  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #0db7ed 0%, #326ce5 100%);
   padding: 5px 15px;
   border-radius: 20px;
   font-weight: 600;
@@ -233,7 +231,7 @@ input[type="checkbox"] {
 hr {
   border: none;
   height: 2px;
-  background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+  background: linear-gradient(90deg, #0db7ed 0%, #326ce5 100%);
   margin: 1em 0;
 }
 
@@ -243,7 +241,7 @@ dl {
 }
 
 dt {
-  color: #1e40af;
+  color: #0db7ed;
   font-weight: bold;
   margin-top: 0.5em;
 }
@@ -299,5 +297,7 @@ dd {
   color: #f59e0b;
   font-weight: bold;
 }
+
+/* Cours Docker & Kubernetes - Polytech */
 
 /* Made with Bob */

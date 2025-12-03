@@ -29,10 +29,10 @@ mkdir -p presentations
 
 # Liste des modules à convertir
 modules=(
-    "module1_introduction.md"
-    "module2_commandes_essentielles.md"
-    "module3_collaboration_github.md"
-    "module4_pratiques_avancees.md"
+    "module1_introduction_conteneurisation.md"
+    "module2_docker_commandes_essentielles.md"
+    "module3_docker_avance.md"
+    "module4_kubernetes.md"
 )
 
 # Compteur
@@ -94,5 +94,7 @@ echo "  - PowerPoint : Ouvrir les fichiers .pptx"
 echo "  - PDF : Ouvrir les fichiers .pdf"
 echo "  - Google Slides : Importer les fichiers .pptx"
 echo ""
+
+# Cours Docker & Kubernetes - Polytech
 
 # Made with Bob
