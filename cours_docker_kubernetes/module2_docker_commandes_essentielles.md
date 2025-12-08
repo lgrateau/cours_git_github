@@ -58,7 +58,7 @@
 ```bash
 # Vérifier la version de Docker
 docker --version
-# Sortie attendue : Docker version 24.0.x, build xxxxx
+# Exemple sortie possible : Docker version 29.0.2-rd, build 5a2d7eb
 
 # Vérifier que Docker fonctionne
 docker run hello-world
@@ -159,13 +159,19 @@ docker images
 # nginx         alpine    a64a6e03b055   2 weeks ago    23.5MB
 # mysql         8.0       3218b38490ce   3 weeks ago    516MB
 ```
-
 **Colonnes expliquées :**
 - **REPOSITORY** : Nom de l'image
 - **TAG** : Version/variante
 - **IMAGE ID** : Identifiant unique (hash)
 - **CREATED** : Date de création
 - **SIZE** : Taille de l'image
+- **In Use** : Indique si l'image est utilisée par un conteneur (nouvelle version)
+
+**Nouvelle version avec couleurs et informations d'utilisation :**
+
+<div style="text-align: center; margin: 20px 0;">
+  <img src="images/docker_images_output.png" alt="Docker Images Command Output" width="900"/>
+</div>
 
 **Autres commandes utiles :**
 ```bash
@@ -241,13 +247,13 @@ docker container exec -ti some-wordpress echo "Hello from container!"
 docker container exec -ti some-wordpress bash
 
 # Une fois dans le conteneur :
-root@abc123:/var/www/html# ls
-index.php  wp-admin  wp-content  wp-includes  ...
+root@5996767b0f58:/var/www/html# ls
+license.txt  wp-activate.php  wp-blog-header.php  ...
 
-root@abc123:/var/www/html# pwd
+root@5996767b0f58:/var/www/html# pwd
 /var/www/html
 
-root@abc123:/var/www/html# exit
+root@5996767b0f58:/var/www/html# exit
 ```
 
 **Options :**
@@ -354,7 +360,7 @@ docker container logs some-wordpress
 # Sortie :
 # WordPress not found in /var/www/html - copying now...
 # Complete! WordPress has been successfully copied to /var/www/html
-# [Thu Jan 16 10:30:00.123456 2025] [core:notice] [pid 1] AH00094: ...
+# AH00558: apache2: Could not reliably determine the server's fully qualified ...
 ```
 
 **Options utiles :**
@@ -370,10 +376,10 @@ docker container logs --tail 50 some-wordpress
 docker container logs -t some-wordpress
 
 # Logs depuis une date
-docker container logs --since 2025-01-16T10:00:00 some-wordpress
+docker container logs --since 2026-01-16T10:00:00 some-wordpress
 
 # Logs jusqu'à une date
-docker container logs --until 2025-01-16T11:00:00 some-wordpress
+docker container logs --until 2026-01-16T11:00:00 some-wordpress
 ```
 
 **Bonnes pratiques :**

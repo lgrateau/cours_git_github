@@ -32,13 +32,9 @@ Docker Compose est un outil pour définir et exécuter des applications Docker m
 
 **Cas d'usage typique : WordPress + MySQL**
 
-```
-┌─────────────┐         ┌─────────────┐
-│  WordPress  │ ◄─────► │    MySQL    │
-│  Container  │         │  Container  │
-│   Port 80   │         │   Port 3306 │
-└─────────────┘         └─────────────┘
-```
+<div style="text-align: center; margin: 30px 0;">
+  <img src="images/wordpress_mysql_architecture.png" alt="WordPress MySQL Architecture" width="400"/>
+</div>
 
 **Avantages :**
 - Configuration déclarative (fichier YAML)
@@ -56,35 +52,35 @@ Docker Compose est un outil pour définir et exécuter des applications Docker m
 **Fichier docker-compose.yaml :**
 
 ```yaml
-version: '3.8'
-
 services:
-  db:
-    image: mysql:8.0
-    volumes:
-      - db_data:/var/lib/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: somewordpress
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
 
   wordpress:
-    depends_on:
-      - db
-    image: wordpress:latest
+    image: wordpress
+    restart: always
     ports:
-      - "8080:80"
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+    volumes:
+      - wordpress:/var/www/html
+
+  db:
+    image: mysql:8.0
     restart: always
     environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - db:/var/lib/mysql
 
 volumes:
-  db_data:
+  wordpress:
+  db:
 ```
 
 **Source :** https://hub.docker.com/_/wordpress
@@ -104,9 +100,13 @@ cd wordpress-app
 # Créer le fichier (copier le contenu du slide précédent)
 notepad docker-compose.yaml  # Windows
 nano docker-compose.yaml     # Linux/Mac
+code docker-compose.yaml     # Les deux ...
 ```
 
 **2. Démarrer la topologie (WordPress + MySQL)**
+
+> ⚠️ **ATTENTION :** Bien arrêter le container utilisé en Exercice 1 : ```` docker stop some-wordpress ````
+
 ```bash
 docker compose up
 ```
@@ -320,6 +320,8 @@ docker compose up -d
 
 **Référence :** https://www.docker.com/blog/how-to-use-the-official-nginx-docker-image/
 
+> ⚠️ **ATTENTION :** Ne pas suivre la section "Setting up a reverse proxy server" du tutoriel Docker. Concentrez-vous uniquement sur les sections de base pour cet exercice.
+
 **Lancer NGINX :**
 ```bash
 docker run -it --rm -d -p 8080:80 --name web nginx
@@ -392,6 +394,8 @@ docker run -it --rm -d -p 8080:80 --name web \
 ## Slide 12 : Exercice 3 - Dockerfile Introduction 📝
 
 ### Construire une image personnalisée
+
+> ⚠️ **ATTENTION :** Utiliser des fichiers locaux plutôt que votre repértoire réseau pour cet exercice, quitte à copier/coller le contenu à la fin du TP.
 
 **Pourquoi créer un Dockerfile ?**
 - Les volumes sont parfaits pour le développement local

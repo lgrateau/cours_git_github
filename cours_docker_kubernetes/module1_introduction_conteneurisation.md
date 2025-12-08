@@ -9,6 +9,11 @@
 ### Formation Docker et Kubernetes
 **Pour Ingénieurs en Électronique - Polytech**
 
+<div style="text-align: center; margin: 30px 0;">
+  <img src="images/docker_logo.png" alt="Docker Logo" width="300" style="display: inline-block; margin: 0 30px;"/>
+  <img src="images/kubernetes_logo.png" alt="Kubernetes Logo" width="300" style="display: inline-block; margin: 0 30px;"/>
+</div>
+
 - Durée : 4 heures
 - Format : Théorie + Pratique intensive
 - Objectif : Maîtriser la conteneurisation et l'orchestration
@@ -18,6 +23,17 @@
 ## Slide 2 : Vos formateurs 🎓
 
 ### Laurent Grateau & Nicolas Peulvast
+
+<div style="display: flex; justify-content: center; gap: 50px; margin: 20px 0;">
+  <div style="text-align: center;">
+    <img src="images/laurent_grateau.png" alt="Laurent Grateau" width="200" style="border-radius: 10px;"/>
+    <p><strong>Laurent Grateau</strong></p>
+  </div>
+  <div style="text-align: center;">
+    <img src="images/nicolas_peulvast.png" alt="Nicolas Peulvast" width="200" style="border-radius: 10px;"/>
+    <p><strong>Nicolas Peulvast</strong></p>
+  </div>
+</div>
 
 **IBM France Lab - Saclay & Sophia Antipolis**
 - R&D IBM en France
@@ -41,6 +57,8 @@
 ### Qu'est-ce qu'ODM (Operational Decision Manager) ?
 
 **Plateforme de gestion de règles métier**
+
+![IBM ODM Architecture](images/odm_architecture.png)
 
 **Cas d'usage :**
 - Approbation de prêts bancaires
@@ -75,6 +93,10 @@
 
 ### Qu'est-ce qu'un conteneur ?
 
+<div style="text-align: center; margin: 20px 0;">
+  <img src="images/docker_logo.png" alt="Docker Logo" width="400"/>
+</div>
+
 **Définition :**
 Un conteneur est une unité logicielle standardisée qui empaquette le code et toutes ses dépendances pour que l'application s'exécute rapidement et de manière fiable d'un environnement informatique à un autre.
 
@@ -86,6 +108,10 @@ Comme un conteneur maritime qui standardise le transport de marchandises, un con
 ## Slide 6 : Why Docker ? 🐳
 
 ### Docker : La plateforme de conteneurisation
+
+<div style="text-align: center; margin: 20px 0;">
+  <img src="images/docker_logo.png" alt="Docker Logo" width="300"/>
+</div>
 
 **Docker est une technologie basée sur les conteneurs qui :**
 - Automatise le déploiement d'applications dans des conteneurs logiciels
@@ -153,35 +179,9 @@ Développeur → Build → Test → Deploy → Production
 
 ### Comparaison : Conteneurs vs Machines Virtuelles
 
-**Architecture des Machines Virtuelles :**
-```
-┌─────────────────────────────────┐
-│      Application A              │
-│      Application B              │
-├─────────────────────────────────┤
-│      Guest OS (Linux)           │
-│      Guest OS (Windows)         │
-├─────────────────────────────────┤
-│      Hypervisor                 │
-├─────────────────────────────────┤
-│      Host OS                    │
-├─────────────────────────────────┤
-│      Infrastructure             │
-└─────────────────────────────────┘
-```
-
-**Architecture des Conteneurs :**
-```
-┌─────────────────────────────────┐
-│  App A  │  App B  │  App C      │
-├─────────┼─────────┼─────────────┤
-│      Docker Engine              │
-├─────────────────────────────────┤
-│      Host OS                    │
-├─────────────────────────────────┤
-│      Infrastructure             │
-└─────────────────────────────────┘
-```
+<div style="text-align: center; margin: 30px 0;">
+  <img src="images/container_vs_vm.png" alt="Container vs VMs Architecture" width="800"/>
+</div>
 
 **Avantages des conteneurs :**
 - ✅ Meilleure utilisation des ressources (moins d'overhead) : CPU, RAM
@@ -190,45 +190,40 @@ Développeur → Build → Test → Deploy → Production
 - ✅ Plusieurs applications sur le même hôte
 - ✅ Abstraction du système
 
+**Points clés :**
+- Les conteneurs partagent le même OS et sont isolés au niveau processus
+- Les VMs incluent un OS complet pour chaque instance
+- Les conteneurs sont plus légers et démarrent plus rapidement
+
 ---
 
 ## Slide 10 : Architecture Docker 🏗️
 
 ### Composants de Docker
 
-**1. Docker Registry (Registre d'images)**
-- Dépôt d'images Docker
-- Docker Hub (public)
-- Registres privés
+<div style="text-align: center; margin: 30px 0;">
+  <img src="images/docker_architecture.png" alt="Docker Architecture" width="800"/>
+</div>
+
+**1. Docker Client (CLI)**
+- Interface en ligne de commande
+- Communique avec le daemon via API REST
+- Commandes : `docker build`, `docker pull`, `docker run`, etc.
 
 **2. Docker Daemon (Serveur)**
-- Service qui s'exécute en arrière-plan
+- Service qui s'exécute en arrière-plan sur le Docker Host
 - Gère les conteneurs, images, réseaux, volumes
 - API REST pour la communication
 
-**3. Docker Client (CLI)**
-- Interface en ligne de commande
-- Communique avec le daemon
-- Commandes : `docker run`, `docker build`, etc.
+**3. Docker Registry (Registre d'images)**
+- Dépôt d'images Docker (Docker Hub, registres privés)
+- Stocke les images Ubuntu, Redis, NGINX, etc.
+- Le daemon pull/push les images depuis/vers le registry
 
 **4. Docker Compose**
 - Outil d'orchestration
 - Définition d'applications multi-conteneurs
 - Fichier YAML de configuration
-
-```
-┌──────────────┐
-│ Docker Client│ ←─── Utilisateur
-└──────┬───────┘
-       │ API REST
-┌──────▼───────┐
-│Docker Daemon │
-└──────┬───────┘
-       │
-┌──────▼───────┐
-│   Registry   │ (Docker Hub)
-└──────────────┘
-```
 
 ---
 
