@@ -66,7 +66,8 @@ services:
       WORDPRESS_DB_NAME: exampledb
     volumes:
       - wordpress:/var/www/html
-
+    networks:
+     - db
   db:
     image: mysql:8.0
     restart: always
@@ -77,10 +78,18 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - db:/var/lib/mysql
-
+    networks:
+     - db
 volumes:
   wordpress:
   db:
+
+networks:
+  db:
+  # Specity driver options
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"
 ```
 
 **Source :** https://hub.docker.com/_/wordpress
