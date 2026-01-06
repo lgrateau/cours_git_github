@@ -49,6 +49,9 @@
 - Environnement Docker dans le navigateur
 - Parfait pour tester sans installation
 
+**Polytech :**
+Préférer l'utilisation de Linux Mint avec le compte de "secours".
+
 ---
 
 ## Slide 3 : Vérification de l'installation ✅

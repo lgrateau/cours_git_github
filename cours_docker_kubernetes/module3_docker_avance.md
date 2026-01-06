@@ -368,8 +368,8 @@ echo '<!doctype html>
     <title>Mon Site</title>
 </head>
 <body>
-    <h1>Hello from Nginx container</h1>
-    <p>Ceci est mon site web personnalisé !</p>
+    <h1>Hello du container Nginx de votre-nom !</h1>
+    <p>Ceci est mon site web personnalis&eacute; !</p>
 </body>
 </html>' > index.html
 ```
@@ -405,6 +405,7 @@ docker run -it --rm -d -p 8080:80 --name web \
 **Créer un Dockerfile :**
 ```bash
 cd site-content
+gedit Dockerfile
 ```
 
 **Contenu du Dockerfile :**
@@ -535,7 +536,7 @@ latest: digest: sha256:xyz789... size: 1234
 ```
 
 **Étape 4 : Vérifier sur Docker Hub**
-- Aller sur https://hub.docker.com/r/<votre-utilisateur>/mywebserver
+- Aller sur https://hub.docker.com/r/votre-utilisateur/mywebserver
 - Votre image est maintenant publique !
 
 ---
@@ -546,17 +547,17 @@ latest: digest: sha256:xyz789... size: 1234
 
 **Supprimer votre image locale :**
 ```bash
-docker rmi <votre-utilisateur>/mywebserver
+docker rmi votre-utilisateur/mywebserver
 docker rmi webserver
 ```
 
 **Récupérer l'image d'un collègue :**
 ```bash
 # Demander le nom d'utilisateur d'un collègue
-docker pull <utilisateur-collegue>/mywebserver
+docker pull utilisateur-collegue/mywebserver
 
 # Lancer le conteneur
-docker run -d -p 8081:80 <utilisateur-collegue>/mywebserver
+docker run -d -p 8081:80 utilisateur-collegue/mywebserver
 ```
 
 **Tester :**
