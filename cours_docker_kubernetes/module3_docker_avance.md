@@ -207,10 +207,10 @@ docker compose exec -ti wordpress bash
 **Étape 3 : Chercher le fichier**
 ```bash
 # Dans le conteneur
-find / -name "wp-admin.php" 2>/dev/null
+find / -name "wp-config.php" 2>/dev/null
 
 # Résultat attendu :
-# /var/www/html/wp-admin.php
+# /var/www/html/wp-config.php
 ```
 
 **Étape 4 : Sortir du conteneur**
