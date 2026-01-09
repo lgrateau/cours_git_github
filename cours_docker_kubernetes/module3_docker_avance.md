@@ -190,7 +190,7 @@ docker compose down -v
 
 ## Slide 6 : Exercice 2 - Explorer le conteneur 🔍
 
-### Trouver le fichier wp-admin.php
+### Trouver le fichier wp-config.php
 
 **Étape 1 : Identifier le service WordPress**
 ```bash
@@ -231,11 +231,11 @@ exit
 docker compose cp --help
 
 # Copier du conteneur vers l'hôte
-docker compose cp wordpress:/var/www/html/wp-admin.php ./wp-admin.php
+docker compose cp wordpress:/var/www/html/wp-config.php ./wp-config.php
 
 # Vérifier que le fichier a été copié
-ls -l wp-admin.php  # Linux/Mac
-dir wp-admin.php    # Windows
+ls -l wp-config.php  # Linux/Mac
+dir wp-config.php    # Windows
 ```
 
 **Copier dans l'autre sens (hôte → conteneur) :**
@@ -249,7 +249,7 @@ docker compose cp ./mon-fichier.php wordpress:/var/www/html/
 docker compose ps
 
 # Copier avec docker cp
-docker cp wordpress-app-wordpress-1:/var/www/html/wp-admin.php ./
+docker cp wordpress-app-wordpress-1:/var/www/html/wp-config.php ./
 ```
 
 ---
