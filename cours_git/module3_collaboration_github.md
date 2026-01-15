@@ -93,7 +93,16 @@ cat ~/.ssh/id_ed25519.pub
 2. GitHub → Settings → SSH and GPG keys
 3. New SSH key
 4. Coller la clé et sauvegarder
-
+5. cd ~/.ssh
+6. gedit config
+7. Copier/coller
+```bash
+Host github.com
+HostName ssh.github.com
+Port 443
+Preferredauthentications publickey
+IdentityFile /home_secours/secours/.ssh/id_ed25519
+```
 ---
 
 ## Slide 5 : Tester la Connexion SSH ✅
